@@ -17,9 +17,6 @@ class Obd(obdservice_pb2_grpc.ObdServicer):
         print("Setting up listener")
         self.connection = self.connect_obd()
         print("Connected")
-
-        self.speed = 50
-        self.rpm = 2600
         self.keys = []
 
     def StreamObd(self, request, context):
@@ -40,7 +37,6 @@ class Obd(obdservice_pb2_grpc.ObdServicer):
             exit(1);
 
         return connection
-        # return None
 
     def query_obd_data(self):
         while True:
@@ -49,8 +45,8 @@ class Obd(obdservice_pb2_grpc.ObdServicer):
                     speed = str(connection.query(cmd).value)
                 if key == 'RPM':
                     rpm = str(connection.query(cmd).value)
-        # while True:
-        #     yield obdservice_pb2.ObdData(currentspeed=self.speed, currentrpm=self.rpm)
+
+        yield route_guide_pb2.ObdData(currentspeed=speed, currentrpm=rpm)
 
 
 def serve_obd_data():
