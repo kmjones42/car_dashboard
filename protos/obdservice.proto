@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+package OBD;
+
+service Obd {
+    rpc StreamObd (ObdDataTypes) returns (stream ObdData) {}
+}
+
+message ObdDataTypes {
+    bool speed = 1;
+    bool rpm = 2;
+}
+
+message ObdData {
+    uint32 currentspeed = 1;
+    uint32 currentrpm = 2;
+}
