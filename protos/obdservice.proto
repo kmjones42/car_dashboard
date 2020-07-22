@@ -4,15 +4,15 @@ syntax = "proto3";
 package OBD;
 
 service Obd {
-    rpc StreamObd (ObdDataTypes) returns (stream ObdData) {}
+    rpc StreamObd (ObdRequestTypes) returns (stream ObdResponse) {}
 }
 
-message ObdDataTypes {
+message ObdRequestTypes {
     bool speed = 1;
     bool rpm = 2;
 }
 
-message ObdData {
-    uint32 currentspeed = 1;
-    uint32 currentrpm = 2;
+message ObdResponse {
+    uint32 speed = 1;
+    uint32 rpm = 2;
 }
