@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+package RealSense;
+
+service RealSense {
+    rpc StreamVideo(RequestVideo) returns (stream RealSenseVideoFrame);
+}
+
+message RequestVideo {
+    bool left_image = 1;
+    bool right_image = 2;
+    bool depth_image = 3;
+}
+
+message RealSenseVideoFrame {
+    bytes frame = 1;
+}
