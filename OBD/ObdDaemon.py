@@ -14,7 +14,7 @@ class Obd():
         print("Setting up listener")
         self.connection = self.connect_obd()
         if not self.connection.is_connected():
-            raise ConnectionError()
+            raise ConnectionError
         print("OBD Connected")
         self.cmds = {key: getattr(obd.commands,key) for key in keys}
 

@@ -19,29 +19,29 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10obdservice.proto\x12\x03OBD\"*\n\x0cObdDataTypes\x12\r\n\x05speed\x18\x01 \x01(\x08\x12\x0b\n\x03rpm\x18\x02 \x01(\x08\"3\n\x07ObdData\x12\x14\n\x0c\x63urrentspeed\x18\x01 \x01(\r\x12\x12\n\ncurrentrpm\x18\x02 \x01(\r27\n\x03Obd\x12\x30\n\tStreamObd\x12\x11.OBD.ObdDataTypes\x1a\x0c.OBD.ObdData\"\x00\x30\x01\x62\x06proto3'
+  serialized_pb=b'\n\x10obdservice.proto\x12\x03OBD\"-\n\x0fObdRequestTypes\x12\r\n\x05speed\x18\x01 \x01(\x08\x12\x0b\n\x03rpm\x18\x02 \x01(\x08\")\n\x0bObdResponse\x12\r\n\x05speed\x18\x01 \x01(\r\x12\x0b\n\x03rpm\x18\x02 \x01(\r2>\n\x03Obd\x12\x37\n\tStreamObd\x12\x14.OBD.ObdRequestTypes\x1a\x10.OBD.ObdResponse\"\x00\x30\x01\x62\x06proto3'
 )
 
 
 
 
-_OBDDATATYPES = _descriptor.Descriptor(
-  name='ObdDataTypes',
-  full_name='OBD.ObdDataTypes',
+_OBDREQUESTTYPES = _descriptor.Descriptor(
+  name='ObdRequestTypes',
+  full_name='OBD.ObdRequestTypes',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='speed', full_name='OBD.ObdDataTypes.speed', index=0,
+      name='speed', full_name='OBD.ObdRequestTypes.speed', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='rpm', full_name='OBD.ObdDataTypes.rpm', index=1,
+      name='rpm', full_name='OBD.ObdRequestTypes.rpm', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -60,27 +60,27 @@ _OBDDATATYPES = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=25,
-  serialized_end=67,
+  serialized_end=70,
 )
 
 
-_OBDDATA = _descriptor.Descriptor(
-  name='ObdData',
-  full_name='OBD.ObdData',
+_OBDRESPONSE = _descriptor.Descriptor(
+  name='ObdResponse',
+  full_name='OBD.ObdResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='currentspeed', full_name='OBD.ObdData.currentspeed', index=0,
+      name='speed', full_name='OBD.ObdResponse.speed', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='currentrpm', full_name='OBD.ObdData.currentrpm', index=1,
+      name='rpm', full_name='OBD.ObdResponse.rpm', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -98,27 +98,27 @@ _OBDDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=69,
-  serialized_end=120,
+  serialized_start=72,
+  serialized_end=113,
 )
 
-DESCRIPTOR.message_types_by_name['ObdDataTypes'] = _OBDDATATYPES
-DESCRIPTOR.message_types_by_name['ObdData'] = _OBDDATA
+DESCRIPTOR.message_types_by_name['ObdRequestTypes'] = _OBDREQUESTTYPES
+DESCRIPTOR.message_types_by_name['ObdResponse'] = _OBDRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-ObdDataTypes = _reflection.GeneratedProtocolMessageType('ObdDataTypes', (_message.Message,), {
-  'DESCRIPTOR' : _OBDDATATYPES,
+ObdRequestTypes = _reflection.GeneratedProtocolMessageType('ObdRequestTypes', (_message.Message,), {
+  'DESCRIPTOR' : _OBDREQUESTTYPES,
   '__module__' : 'obdservice_pb2'
-  # @@protoc_insertion_point(class_scope:OBD.ObdDataTypes)
+  # @@protoc_insertion_point(class_scope:OBD.ObdRequestTypes)
   })
-_sym_db.RegisterMessage(ObdDataTypes)
+_sym_db.RegisterMessage(ObdRequestTypes)
 
-ObdData = _reflection.GeneratedProtocolMessageType('ObdData', (_message.Message,), {
-  'DESCRIPTOR' : _OBDDATA,
+ObdResponse = _reflection.GeneratedProtocolMessageType('ObdResponse', (_message.Message,), {
+  'DESCRIPTOR' : _OBDRESPONSE,
   '__module__' : 'obdservice_pb2'
-  # @@protoc_insertion_point(class_scope:OBD.ObdData)
+  # @@protoc_insertion_point(class_scope:OBD.ObdResponse)
   })
-_sym_db.RegisterMessage(ObdData)
+_sym_db.RegisterMessage(ObdResponse)
 
 
 
@@ -129,7 +129,7 @@ _OBD = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=122,
+  serialized_start=115,
   serialized_end=177,
   methods=[
   _descriptor.MethodDescriptor(
@@ -137,8 +137,8 @@ _OBD = _descriptor.ServiceDescriptor(
     full_name='OBD.Obd.StreamObd',
     index=0,
     containing_service=None,
-    input_type=_OBDDATATYPES,
-    output_type=_OBDDATA,
+    input_type=_OBDREQUESTTYPES,
+    output_type=_OBDRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

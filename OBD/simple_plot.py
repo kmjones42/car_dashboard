@@ -16,3 +16,4 @@ data = [np.random.randint(1,101) for i in range(0,101)]
 
 if __name__ == '__main__':
     app.run_server(debug=False)
+    

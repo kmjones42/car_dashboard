@@ -16,8 +16,8 @@ class ObdStub(object):
         """
         self.StreamObd = channel.unary_stream(
                 '/OBD.Obd/StreamObd',
-                request_serializer=obdservice__pb2.ObdDataTypes.SerializeToString,
-                response_deserializer=obdservice__pb2.ObdData.FromString,
+                request_serializer=obdservice__pb2.ObdRequestTypes.SerializeToString,
+                response_deserializer=obdservice__pb2.ObdResponse.FromString,
                 )
 
 
@@ -35,8 +35,8 @@ def add_ObdServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'StreamObd': grpc.unary_stream_rpc_method_handler(
                     servicer.StreamObd,
-                    request_deserializer=obdservice__pb2.ObdDataTypes.FromString,
-                    response_serializer=obdservice__pb2.ObdData.SerializeToString,
+                    request_deserializer=obdservice__pb2.ObdRequestTypes.FromString,
+                    response_serializer=obdservice__pb2.ObdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -59,7 +59,7 @@ class Obd(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/OBD.Obd/StreamObd',
-            obdservice__pb2.ObdDataTypes.SerializeToString,
-            obdservice__pb2.ObdData.FromString,
+            obdservice__pb2.ObdRequestTypes.SerializeToString,
+            obdservice__pb2.ObdResponse.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)
